@@ -446,3 +446,242 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
 }
+
+/* Landing Page Front Cover Styling */
+.landing-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 60px;
+  min-height: 100vh;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+
+.landing-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.landing-auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.landing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.landing-title {
+  font-size: 3.2rem;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.landing-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 50%, #d946ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.landing-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 580px;
+}
+
+.landing-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.landing-feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 12px;
+}
+
+.landing-feature-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-feature-title {
+  font-size: 0.9rem;
+  fontWeight: 700;
+  color: var(--text-primary);
+}
+
+.landing-feature-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+  .landing-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 60px 24px;
+    justify-content: center;
+  }
+  
+  .landing-hero {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .landing-subtitle {
+    margin: 0 auto;
+  }
+  
+  .landing-feature-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 12px auto 0;
+    text-align: left;
+  }
+  
+  .landing-feature-card {
+    align-items: flex-start;
+  }
+}
+
+/* Landing Page Sticky Glassmorphic Navbar */
+.landing-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.landing-navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 48px;
+  background: rgba(8, 7, 16, 0.45);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+[data-theme='light'] .landing-navbar {
+  background: rgba(244, 246, 250, 0.45);
+}
+
+.landing-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(139, 92, 246, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.brand-name-small {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.landing-navbar-links {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+  letter-spacing: 0.02em;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.landing-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .landing-navbar {
+    padding: 12px 24px;
+  }
+  
+  .landing-navbar-links {
+    display: none;
+  }
+}
+
+

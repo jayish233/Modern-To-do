@@ -57,7 +57,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div style={styles.brandLogo}>
           <Icons.Sparkles size={20} color="var(--primary)" />
         </div>
-        <span style={styles.brandName}>antigravity_</span>
+        <span style={styles.brandName}>Motion-To_Do_</span>
       </div>
 
       {/* User Session Profile Card */}

@@ -5,6 +5,7 @@ import { AuthCard } from './components/Auth/AuthCard';
 import { Dashboard } from './components/Dashboard/Dashboard';
 import { ProfileEditModal } from './components/UI/ProfileEditModal';
 import confetti from 'canvas-confetti';
+import { Sparkles, Activity, TrendingUp, Layers, Sun, Moon } from 'lucide-react';
 
 const PREDEFINED_CATEGORIES: Category[] = [
   { id: '1', name: 'Work', icon: 'Briefcase', color: 'accent-blue' },
@@ -198,8 +199,92 @@ export default function App() {
           )}
         </div>
       ) : (
-        <div className="glass-container">
-          <AuthCard onAuthSuccess={setUser} />
+        <div className="landing-wrapper">
+          {/* Premium Glassmorphic Top Navbar */}
+          <nav className="landing-navbar slide-up">
+            <div className="landing-navbar-brand">
+              <div className="brand-logo-small">
+                <Sparkles size={16} color="var(--primary)" />
+              </div>
+              <span className="brand-name-small">Motion-To_Do_</span>
+            </div>
+            
+            <div className="landing-navbar-links">
+              <a href="#features" className="nav-link">Features</a>
+              <a href="#vision" className="nav-link">Vision</a>
+              <a href="#analytics" className="nav-link">Analytics</a>
+            </div>
+            
+            <div className="landing-navbar-actions">
+              <button 
+                className="btn-icon" 
+                onClick={handleToggleTheme} 
+                style={{ width: '36px', height: '36px' }}
+                title="Toggle Theme"
+              >
+                {theme === 'dark' ? (
+                  <Sun size={16} color="var(--accent-amber)" />
+                ) : (
+                  <Moon size={16} color="var(--primary)" />
+                )}
+              </button>
+            </div>
+          </nav>
+
+          <div className="landing-container fade-in">
+            {/* Landing Vision & Front Cover Section */}
+            <div className="landing-hero slide-up">
+              <div className="landing-badge">
+                <Sparkles size={14} />
+                <span>Elevated Task Platform</span>
+              </div>
+              
+              <h1 className="landing-title">
+                Defy the Chaos.<br />
+                <span className="landing-gradient">Elevate Your Flow.</span>
+              </h1>
+              
+              <p className="landing-subtitle">
+                Experience a task dashboard designed to float above standard, cluttered planners. 
+                <strong> Motion-To_Do_</strong> brings high-end glassmorphism, responsive live metrics, 
+                custom subtasks checklists, and synthesised Web Audio chimes directly into your daily routine.
+              </p>
+              
+              <div className="landing-feature-grid">
+                {/* Feature 1 */}
+                <div className="glass-card landing-feature-card">
+                  <div className="landing-feature-icon" style={{ backgroundColor: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+                    <Activity size={18} color="var(--accent-blue)" />
+                  </div>
+                  <h3 className="landing-feature-title">Sensory Feedback</h3>
+                  <p className="landing-feature-desc">Double-tone synth chimes and high-velocity confetti rewards play when resolving items.</p>
+                </div>
+                
+                {/* Feature 2 */}
+                <div className="glass-card landing-feature-card">
+                  <div className="landing-feature-icon" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                    <TrendingUp size={18} color="var(--accent-green)" />
+                  </div>
+                  <h3 className="landing-feature-title">Live SVG Metrics</h3>
+                  <p className="landing-feature-desc">Active completion widgets and category trackers trace your focus in real-time.</p>
+                </div>
+                
+                {/* Feature 3 */}
+                <div className="glass-card landing-feature-card">
+                  <div className="landing-feature-icon" style={{ backgroundColor: 'rgba(139, 92, 246, 0.1)', border: '1px solid rgba(139, 92, 246, 0.2)' }}>
+                    <Layers size={18} color="var(--primary)" />
+                  </div>
+                  <h3 className="landing-feature-title">Nested Checklists</h3>
+                  <p className="landing-feature-desc">Break major projects down into minor nested checklists, with custom progress indicators.</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Landing Login Screen Card Section */}
+            <div className="landing-auth">
+              <AuthCard onAuthSuccess={setUser} />
+            </div>
+          </div>
         </div>
       )}
     </>
